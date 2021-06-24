@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:argonaute_push/page/push_detail.dart';
-import 'package:argonaute_push/functions/functions.dart';
 
 class PushList extends StatefulWidget {
   const PushList({Key? key}) : super(key: key);

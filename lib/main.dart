@@ -1,10 +1,12 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
 import 'package:onesignal_flutter/onesignal_flutter.dart';
 
 import 'package:argonaute_push/config.dart';
-
 import 'package:argonaute_push/page/home.dart';
+import 'package:argonaute_push/page/push_detail.dart';
 
 void main() {
   runApp(MyApp());
@@ -18,6 +20,8 @@ class MyApp extends StatefulWidget {
 }
 
 class MyAppState extends State<MyApp> {
+  static final _navigatorKey = new GlobalKey<NavigatorState>();
+
   @override
   void initState() {
     super.initState();
@@ -27,6 +31,7 @@ class MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      navigatorKey: _navigatorKey,
       title: 'Argonaute Push',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -44,6 +49,15 @@ class MyAppState extends State<MyApp> {
     // The promptForPushNotificationsWithUserResponse function will show the iOS push notification prompt. We recommend removing the following code and instead using an In-App Message to prompt for notification permission
     OneSignal.shared.promptUserForPushNotificationPermission().then((accepted) {
       print("Accepted permission: $accepted");
+    });
+
+    // Called when the user opens or taps an action on a notification.
+    OneSignal.shared
+        .setNotificationOpenedHandler((OSNotificationOpenedResult result) {
+      log(result.notification.title.toString());
+
+      _navigatorKey.currentState?.push(MaterialPageRoute(
+          builder: (context) => PushDetail(notification: result.notification)));
     });
   }
 }
