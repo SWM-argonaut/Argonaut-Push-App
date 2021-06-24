@@ -54,8 +54,6 @@ class MyAppState extends State<MyApp> {
     // Called when the user opens or taps an action on a notification.
     OneSignal.shared
         .setNotificationOpenedHandler((OSNotificationOpenedResult result) {
-      log(result.notification.title.toString());
-
       _navigatorKey.currentState?.push(MaterialPageRoute(
           builder: (context) => PushDetail(notification: result.notification)));
     });
