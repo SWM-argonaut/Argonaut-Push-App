@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 
 import 'package:localstorage/localstorage.dart';
 
-import 'package:argonaute_push/page/push_list.dart';
-import 'package:argonaute_push/page/tag.dart';
+import 'package:argonaute_push/page/push/push_list.dart';
+import 'package:argonaute_push/page/tag/tag.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:argonaute_push/page/tag.dart';
+import 'package:argonaute_push/page/tag/tag.dart';
 
 class Settings extends StatefulWidget {
   const Settings({Key? key}) : super(key: key);
@@ -22,8 +22,8 @@ class _SettingsState extends State<Settings> {
           ElevatedButton(
             onPressed: () => Navigator.push(
                 context, MaterialPageRoute(builder: (context) => Tag())),
-            child: Text("태그 바꾸기"),
-          )
+            child: Text("태그 설정"),
+          ),
         ]),
       ),
     );

@@ -6,8 +6,9 @@ import 'package:onesignal_flutter/onesignal_flutter.dart';
 
 import 'package:argonaute_push/config.dart';
 import 'package:argonaute_push/page/home.dart';
-import 'package:argonaute_push/page/push_list.dart';
-import 'package:argonaute_push/page/push_detail.dart';
+import 'package:argonaute_push/page/tag/tag.dart';
+import 'package:argonaute_push/page/push/push_list.dart';
+import 'package:argonaute_push/page/push/push_detail.dart';
 
 void main() {
   runApp(MyApp());
@@ -38,7 +39,11 @@ class MyAppState extends State<MyApp> {
         primarySwatch: Colors.blue,
       ),
       initialRoute: '/',
-      routes: {'/': (context) => Home(), '/list': (context) => PushList()},
+      routes: {
+        '/': (context) => Home(),
+        '/list': (context) => PushList(),
+        '/tag': (context) => Tag(),
+      },
     );
   }
 
