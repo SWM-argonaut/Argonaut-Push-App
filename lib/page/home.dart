@@ -25,7 +25,11 @@ class _HomeState extends State<Home> {
           if (snapshot.data == null) {
             return Center(
               // 로딩화면
-              child: CircularProgressIndicator(),
+              child: Container(
+                  child: Column(children: [
+                Text("스토리지 로딩중"),
+                CircularProgressIndicator()
+              ])),
             );
           }
 

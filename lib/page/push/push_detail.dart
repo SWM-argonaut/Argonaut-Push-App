@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:onesignal_flutter/onesignal_flutter.dart';
+import 'package:argonaute_push/class/class.dart' show Item;
 
 const titleStyle = TextStyle(
   fontSize: 50,
@@ -10,19 +10,18 @@ const bodyStyle = TextStyle(
 );
 
 class PushDetail extends StatefulWidget {
-  final OSNotification? notification;
+  final Item? item;
 
-  const PushDetail({Key? key, this.notification}) : super(key: key);
+  const PushDetail({Key? key, this.item}) : super(key: key);
 
   @override
-  _PushDetailState createState() =>
-      _PushDetailState(notification: notification);
+  _PushDetailState createState() => _PushDetailState(item: item);
 }
 
 class _PushDetailState extends State<PushDetail> {
-  final OSNotification? notification;
+  final Item? item;
 
-  _PushDetailState({this.notification});
+  _PushDetailState({this.item});
 
   @override
   Widget build(BuildContext context) {
@@ -35,11 +34,11 @@ class _PushDetailState extends State<PushDetail> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "title : ${notification?.title}\n",
+                "title : ${item?.title}\n",
                 style: titleStyle,
               ),
               Text(
-                "body : ${notification?.body}",
+                "body : ${item?.body}",
                 style: bodyStyle,
               )
             ],

@@ -1,10 +1,11 @@
 import 'dart:developer';
 
+import 'package:argonaute_push/class/class.dart';
 import 'package:flutter/material.dart';
 
 import 'package:onesignal_flutter/onesignal_flutter.dart';
 
-import 'package:argonaute_push/config.dart';
+import 'package:argonaute_push/configs.dart';
 import 'package:argonaute_push/page/home.dart';
 import 'package:argonaute_push/page/tag/tag.dart';
 import 'package:argonaute_push/page/push/push_list.dart';
@@ -38,9 +39,8 @@ class MyAppState extends State<MyApp> {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: '/',
+      home: Home(),
       routes: {
-        '/': (context) => Home(),
         '/list': (context) => PushList(),
         '/tag': (context) => Tag(),
       },
@@ -62,7 +62,8 @@ class MyAppState extends State<MyApp> {
     OneSignal.shared
         .setNotificationOpenedHandler((OSNotificationOpenedResult result) {
       _navigatorKey.currentState?.push(MaterialPageRoute(
-          builder: (context) => PushDetail(notification: result.notification)));
+          builder: (context) =>
+              PushDetail(item: Item.notification(result.notification))));
     });
   }
 }
