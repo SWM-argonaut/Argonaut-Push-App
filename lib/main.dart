@@ -6,6 +6,7 @@ import 'package:onesignal_flutter/onesignal_flutter.dart';
 
 import 'package:argonaute_push/config.dart';
 import 'package:argonaute_push/page/home.dart';
+import 'package:argonaute_push/page/push_list.dart';
 import 'package:argonaute_push/page/push_detail.dart';
 
 void main() {
@@ -36,7 +37,8 @@ class MyAppState extends State<MyApp> {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Home(),
+      initialRoute: '/',
+      routes: {'/': (context) => Home(), '/list': (context) => PushList()},
     );
   }
 

@@ -93,7 +93,8 @@ class _TagState extends State<Tag> {
                   // TODO 성공 페이지 꾸미기
                   Text(snapshot.data),
                   ElevatedButton(
-                      onPressed: () => Navigator.pop(context),
+                      onPressed: () =>
+                          Navigator.pushReplacementNamed(context, '/list'),
                       child: Text("확인"))
                 ]);
               },

@@ -16,6 +16,7 @@ class _PushListState extends State<PushList> {
     return Container(
       child: Scaffold(
           appBar: AppBar(
+            automaticallyImplyLeading: false,
             title: Text("푸시 리스트"),
             actions: [
               ElevatedButton(
