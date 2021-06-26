@@ -1,4 +1,8 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+
+import 'package:localstorage/localstorage.dart';
 
 import 'package:argonaute_push/page/push_list.dart';
 import 'package:argonaute_push/page/tag.dart';
@@ -11,27 +15,21 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  final LocalStorage _storage = new LocalStorage('data.json');
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text("푸시 앱")),
-      body: Container(
-        alignment: Alignment.center,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            ElevatedButton(
-                onPressed: () => Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => Tag())),
-                child: Text("태그 관리")),
-            ElevatedButton(
-                onPressed: () => Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => PushList())),
-                child: Text("푸시 리스트 보기")),
-          ],
-        ),
-      ),
-    );
+    return FutureBuilder(
+        future: _storage.ready,
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+          if (snapshot.data == null) {
+            return Center(
+              // 로딩화면
+              child: CircularProgressIndicator(),
+            );
+          }
+
+          return _storage.getItem("current_tag") == null ? Tag() : PushList();
+        });
   }
 }
