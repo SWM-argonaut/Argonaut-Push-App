@@ -8,4 +8,17 @@ class Item {
     this.title = "${item.title}";
     this.body = "${item.body}";
   }
+
+  static List<Item> jsonToItems(List<dynamic> json) {
+    List<Item> items = [];
+
+    for (var item in json) {
+      items.add(Item(
+        title: item['title'],
+        body: item['mainText'],
+      ));
+    }
+
+    return items;
+  }
 }
