@@ -22,7 +22,7 @@ class _SettingsState extends State<Settings> {
           ElevatedButton(
             onPressed: () => Navigator.push(
                 context, MaterialPageRoute(builder: (context) => Tag())),
-            child: Text("태그 설정"),
+            child: Text("다른 응원방 입장"),
           ),
         ]),
       ),

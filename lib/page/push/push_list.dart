@@ -43,7 +43,7 @@ class _PushListState extends State<PushList> {
     return Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          title: Text("푸시 리스트"),
+          title: Text("공지사항"),
           actions: [
             ElevatedButton(
                 onPressed: () => Navigator.push(context,
@@ -77,7 +77,7 @@ class _PushListState extends State<PushList> {
                 MaterialPageRoute(
                     builder: (context) => PushDetail(item: item))),
             child: Column(
-              children: [Text("${item.title}"), Text("${item.body}")],
+              children: [Text("${item.title}"), Text("${item.push}")],
             )));
   }
 

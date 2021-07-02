@@ -27,18 +27,22 @@ class _PushDetailState extends State<PushDetail> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("푸시 앱"),
+          title: Text("상세내용"),
         ),
         body: Container(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "title : ${item?.title}\n",
+                "${item?.title}\n",
                 style: titleStyle,
               ),
               Text(
-                "body : ${item?.body}",
+                "${item?.push}\n",
+                style: bodyStyle,
+              ),
+              Text(
+                "${item?.body}",
                 style: bodyStyle,
               )
             ],

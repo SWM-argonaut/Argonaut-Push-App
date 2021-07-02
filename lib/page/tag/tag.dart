@@ -33,7 +33,7 @@ class _TagState extends State<Tag> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("태그등록"),
+        title: Text("응원방 입장"),
       ),
       body: Container(
         child: FutureBuilder(
@@ -49,7 +49,7 @@ class _TagState extends State<Tag> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "키를 입력해주세요!",
+                    "응원 문구를 입력해주세요!",
                     style: TextStyle(fontSize: 20),
                   ),
                   TextFormField(
@@ -76,7 +76,7 @@ class _TagState extends State<Tag> {
         builder: (BuildContext context) {
           return AlertDialog(
             scrollable: true,
-            title: Text("계정 전환 중"),
+            title: Text("응원방 입장 심사중"),
             content: FutureBuilder(
               future: _addTag(),
               builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -95,7 +95,7 @@ class _TagState extends State<Tag> {
                   ElevatedButton(
                       onPressed: () =>
                           Navigator.pushReplacementNamed(context, '/list'),
-                      child: Text("확인"))
+                      child: Text("입장"))
                 ]);
               },
             ),
@@ -164,7 +164,7 @@ class _TagState extends State<Tag> {
       return err.toString();
     }
 
-    return "done";
+    return "";
   }
 
   _removeTag() async {
@@ -181,6 +181,6 @@ class _TagState extends State<Tag> {
       return err.toString();
     }
 
-    return "done";
+    return "";
   }
 }
